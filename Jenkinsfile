@@ -14,7 +14,9 @@ pipeline {
         }
         stage('Restore packages') {
           steps {
-          bat "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\MSBuild" AspnetMVCPatient.sln  /t:Rebuild /p:outdir="c:\outproject\\" /p:Configuration=Release /p:Platform="Any CPU"
+          
+          bat 'SBuildC:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln --configuration Release'
+
           }
         }
      stage('Publish'){
