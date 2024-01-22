@@ -18,6 +18,11 @@ pipeline {
             bat 'dotnet build C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln --configuration Release'
           }
         }
+     stage('Publish'){
+            steps{
+            bat "dotnet publish C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.csproj "
+        }
+     }
 
     }
 }
