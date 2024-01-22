@@ -1,6 +1,3 @@
-#!/usr/bin/env groovy
-
-@Library('jenkins-shared-lib@main') _
 pipeline {
     agent { label 'connect' }
 
