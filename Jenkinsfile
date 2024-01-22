@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Restore nuget') {
             steps {
-                bat 'nuget restore C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\AspnetMVCPatient.sln' // for .NET framework
+                bat 'nuget restore C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln' // for .NET framework
                
             }
         }
