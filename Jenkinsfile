@@ -12,12 +12,16 @@ pipeline {
             git branch: 'main',  credentialsId:'f3de8d23-ae66-427f-a339-50df0a740664',url: 'https://github.com/marimain/AspnetMVCPatient.git'
           }
         }
+        stage('Restore nuget') {
+            steps {
+                bat 'nuget restore C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\AspnetMVCPatient.sln' // for .NET framework
+               
+            }
+        }
         stage('Restore packages') {
           steps {
-          bat '''
-          NuGet install 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient\\packages.config -o packages\\'
-          'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\MSBuild C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln  /t:Rebuild /p:Configuration=Release /p:Platform="Any CPU"'
-          '''
+           bat 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\MSBuild C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln  /t:Rebuild /p:Configuration=Release /p:Platform="Any CPU"'
+          
           }
         }
      stage('Publish'){
