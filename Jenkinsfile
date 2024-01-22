@@ -15,7 +15,7 @@ pipeline {
         stage('Restore packages') {
           steps {
           
-          bat 'C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln --configuration Release'
+          bat 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\MSBuild C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln --configuration Release'
 
           }
         }
