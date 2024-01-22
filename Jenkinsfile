@@ -14,8 +14,9 @@ pipeline {
         }
         stage('Restore packages') {
           steps {
+          bat '''
           NuGet install 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient\\packages.config -o packages\\'
-          bat 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\MSBuild C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln  /t:Rebuild /p:Configuration=Release /p:Platform="Any CPU"'
+          'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\MSBuild C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln  /t:Rebuild /p:Configuration=Release /p:Platform="Any CPU"'
 
           }
         }
