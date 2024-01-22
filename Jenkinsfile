@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'connect' }
+    agent any
 
     stages {
       stage ('Clean workspace') {
