@@ -9,13 +9,14 @@ pipeline {
       }
       stage ('Git Checkout') {
          steps {
-            bat '''
             NuGet install packages.config -o packages\\
-            'dotnet build C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln --configuration Release'
-            
-            '''
           }
         }
+        stage('Restore packages') {
+          steps {
 
+            bat 'dotnet build C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln --configuration Release'
+          }
+        }
     }
 }
