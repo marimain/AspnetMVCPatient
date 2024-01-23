@@ -15,7 +15,8 @@ pipeline {
         stage('Restore packages') {
           steps {
 
-            bat 'dotnet build C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln --configuration Release'
+           
+            bat 'msbuild BiogenFieldPortal.sln /p:Configuration=Release /p:PackageLocation=C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\ /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=false'
           }
         }
     }
