@@ -16,7 +16,7 @@ pipeline {
           steps {
 
            
-            bat 'C:\\Program Files (x86)\\MSBuild\\12.0\Binmsbuild AspnetMVCPatient.sln /p:Configuration=Release /p:PackageLocation=C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\ /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=false'
+            bat 'C:\\Program Files (x86)\\MSBuild\\12.0\\Binmsbuild AspnetMVCPatient.sln /p:Configuration=Release /p:PackageLocation=C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\ /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=false'
           }
         }
     }
