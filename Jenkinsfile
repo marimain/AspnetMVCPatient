@@ -11,7 +11,8 @@ pipeline {
          steps {
             bat '''
             NuGet install packages.config -o packages\\
-            dotnet restore C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln
+            'dotnet build C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln --configuration Release'
+            
             '''
           }
         }
