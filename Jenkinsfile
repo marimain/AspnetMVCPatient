@@ -11,7 +11,7 @@ pipeline {
          steps {
             bat '''
             NuGet install packages.config -o packages\\
-            //msbuild BiogenFieldPortal.sln /p:Configuration=Release /p:PackageLocation=%WORKSPACE%\\BuildOutput\\ /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=false
+            msbuild AspnetMVCPatient.sln /p:Configuration=Release /p:PackageLocation=%WORKSPACE%\\BuildOutput\\ /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=false
             '''
           }
         }
