@@ -9,7 +9,7 @@ pipeline {
       }
       stage ('Git Checkout') {
          steps {
-            NuGet install packages.config -o packages\\
+           bat 'NuGet install packages.config -o packages\\'
           }
         }
         stage('Restore packages') {
