@@ -8,26 +8,13 @@ pipeline {
         }
       }
       stage ('Git Checkout') {
-        steps {
-            git branch: 'main',  credentialsId:'f3de8d23-ae66-427f-a339-50df0a740664',url: 'https://github.com/marimain/AspnetMVCPatient.git'
+         steps {
+            bat '''
+            NuGet install packages.config -o packages\\
+            //msbuild BiogenFieldPortal.sln /p:Configuration=Release /p:PackageLocation=%WORKSPACE%\\BuildOutput\\ /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=false
+            '''
           }
         }
-    stage('Restore packages'){
-       steps{
-          bat "dotnet restore C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln"
-         }
-      }        
-      stage('build packages') {
-          steps {
-           bat 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\MSBuild C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.sln  /t:Rebuild /p:Configuration=Release /p:Platform="Any CPU"'
-          
-          }
-        }
-     stage('Publish'){
-            steps{
-            bat "dotnet publish C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\AspnetMVCPatient\\AspnetMVCPatient.csproj "
-        }
-     }
 
     }
 }
